@@ -24,6 +24,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0952808a6c2afd1aa8947271f3a60f1a6763c7b912d210184c5149b5cf147247"
 
 [[package]]
+name = "async-attributes"
+version = "1.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a3203e79f4dd9bdda415ed03cf14dae5a2bf775c683a00f94e9cd1faf0f596e5"
+dependencies = [
+ "quote",
+ "syn 1.0.109",
+]
+
+[[package]]
 name = "async-channel"
 version = "1.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -83,6 +93,7 @@ dependencies = [
  "blocking",
  "futures-lite 2.3.0",
  "once_cell",
+ "tokio",
 ]
 
 [[package]]
@@ -210,6 +221,7 @@ version = "1.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "62565bb4402e926b29953c785397c6dc0391b7b446e45008b0049eb43cec6f5d"
 dependencies = [
+ "async-attributes",
  "async-channel 1.9.0",
  "async-global-executor",
  "async-io 1.13.0",
@@ -1025,16 +1037,19 @@ checksum = "3fdb12b2476b595f9358c5161aa467c2438859caa136dec86c26fdd2efe17b92"
 name = "oogway"
 version = "0.1.0"
 dependencies = [
+ "async-openai",
  "async-std",
- "oogway 0.1.0 (git+https://github.com/cs50victor/oogway_ai)",
+ "futures",
+ "oogway 0.1.0 (git+https://github.com/cs50victor/oogway_ai?branch=main)",
  "pyo3",
  "pyo3-asyncio",
+ "tokio",
 ]
 
 [[package]]
 name = "oogway"
 version = "0.1.0"
-source = "git+https://github.com/cs50victor/oogway_ai#9458e161cdda489d315cad22f3e259c64471ded2"
+source = "git+https://github.com/cs50victor/oogway_ai?branch=main#e3df342c3d041d1b92e7902822760265749c47fd"
 dependencies = [
  "anyhow",
  "async-openai",
@@ -1723,7 +1738,9 @@ dependencies = [
  "libc",
  "mio",
  "num_cpus",
+ "parking_lot",
  "pin-project-lite",
+ "signal-hook-registry",
  "socket2 0.5.6",
  "tokio-macros",
  "windows-sys 0.48.0",
