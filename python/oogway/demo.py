@@ -5,16 +5,20 @@ import oogway
 
 
 ai = oogway.Oogway()
-ai.model_name = "gpt-3.5-turbo"
+
+# change model name from python
+
+ai.model_name = "gpt-4-0125-preview"
 
 async def talk_to_oogway(question: str):
-    print(f"\n> You :\n\t{question}");
+    print(f"\n> You : {question}");
     while True:
-        print("\n> Oogway : \n\t", end="");
+        print("\n> Oogway : ", end="");
+        # python async generator for chunk streaming
         async for chunk in ai.ask(question):
             sys.stdout.write(chunk)
             sys.stdout.flush()
-        question = input("\n> You: \t ")
+        question = input("\n\n> You: ")
 
 if __name__ == "__main__":
-    asyncio.run(talk_to_oogway("why?"))
+    asyncio.run(talk_to_oogway("why is life?"))
