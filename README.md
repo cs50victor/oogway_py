@@ -57,11 +57,8 @@ That's it! Your application should now be able to allow users to converse with M
 > **Note**
 > You can run the example above from [the demo file](https://github.com/cs50victor/oogway_py/tree/main/python/oogway_py/demo.py).
 
-Run `python python/oogway_py/demo.py`
+Run `python python/oogway_py/demo.py` or checkout the [Jupyter Notebook Example](./example.ipynb)
 
-## Demo 
-
+## Demo
 
 https://github.com/cs50victor/oogway_py/assets/52110451/aa762411-a8a9-4e50-a746-8374f8455700
-
-
