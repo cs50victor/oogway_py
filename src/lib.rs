@@ -1,9 +1,9 @@
 use std::{pin::Pin, sync::Arc};
 
-use ::oogway::{ask_helper, Oogway as _Oogway};
 use async_openai::{error::OpenAIError, types::CreateChatCompletionStreamResponse};
-use async_std::stream::{IntoStream, StreamExt};
-use futures::Stream;
+use async_std::stream::IntoStream;
+use ::oogway::{ask_helper, Oogway as _Oogway};
+use futures::{Stream,StreamExt};
 use pyo3::{
     exceptions::{PyKeyError, PyStopAsyncIteration},
     pyclass, pymethods, pymodule,
@@ -12,23 +12,18 @@ use pyo3::{
 };
 use tokio::sync::Mutex;
 
-// use pyo3::{exceptions::PyKeyError, prelude::*};
-
-/// A Python module implemented in Rust.
 #[pymodule]
-fn oogway(_py: Python, m: &PyModule) -> PyResult<()> {
+fn oogway_py(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_class::<Oogway>()?;
     Ok(())
 }
 
-// not really optimized , prolly a better way to do this
+
 #[pyclass]
 #[derive(Clone)]
 pub struct Oogway {
     inner: _Oogway,
 }
-
-// https://github.com/awestlake87/pyo3-asyncio/issues/17
 
 #[pymethods]
 impl Oogway {

@@ -1,7 +1,6 @@
 import asyncio
 import sys
-import time
-import oogway
+import oogway_py as oogway
 
 
 ai = oogway.Oogway()
